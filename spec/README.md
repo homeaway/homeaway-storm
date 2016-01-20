@@ -1,0 +1,18 @@
+to run these test cases, first follow the instructions at https://github.com/miguno/wirbelsturm to provision a local virtual storm cluster. 
+
+Once you have done that, you can deploy the topology in the assets directory here to your virtual cluster. Here is an example invocation:
+
+```
+[vagrant@nimbus1 ~]$ /opt/storm/bin/storm jar /shared/storm-starter.jar storm.starter.ExclamationTopology exclamation-topology
+Running: java -client -Dstorm.options= -Dstorm.home=/opt/storm -Dstorm.log.dir=/opt/storm/logs -Djava.library.path=/usr/local/lib:/opt/local/lib:/usr/lib -Dstorm.conf.file= -cp /opt/storm/lib/minlog-1.2.jar:/opt/storm/lib/tools.macro-0.1.0.jar:/opt/storm/lib/storm-core-0.9.3.jar:/opt/storm/lib/compojure-1.1.3.jar:/opt/storm/lib/kryo-2.21.jar:/opt/storm/lib/tools.logging-0.2.3.jar:/opt/storm/lib/commons-io-2.4.jar:/opt/storm/lib/log4j-over-slf4j-1.6.6.jar:/opt/storm/lib/hiccup-0.3.6.jar:/opt/storm/lib/chill-java-0.3.5.jar:/opt/storm/lib/tools.cli-0.2.4.jar:/opt/storm/lib/jgrapht-core-0.9.0.jar:/opt/storm/lib/commons-exec-1.1.jar:/opt/storm/lib/servlet-api-2.5.jar:/opt/storm/lib/ring-servlet-0.3.11.jar:/opt/storm/lib/clj-time-0.4.1.jar:/opt/storm/lib/logback-classic-1.0.13.jar:/opt/storm/lib/objenesis-1.2.jar:/opt/storm/lib/jline-2.11.jar:/opt/storm/lib/json-simple-1.1.jar:/opt/storm/lib/logback-core-1.0.13.jar:/opt/storm/lib/commons-fileupload-1.2.1.jar:/opt/storm/lib/math.numeric-tower-0.0.1.jar:/opt/storm/lib/snakeyaml-1.11.jar:/opt/storm/lib/commons-codec-1.6.jar:/opt/storm/lib/core.incubator-0.1.0.jar:/opt/storm/lib/commons-logging-1.1.3.jar:/opt/storm/lib/clout-1.0.1.jar:/opt/storm/lib/jetty-6.1.26.jar:/opt/storm/lib/ring-devel-0.3.11.jar:/opt/storm/lib/asm-4.0.jar:/opt/storm/lib/clojure-1.5.1.jar:/opt/storm/lib/carbonite-1.4.0.jar:/opt/storm/lib/ring-jetty-adapter-0.3.11.jar:/opt/storm/lib/ring-core-1.1.5.jar:/opt/storm/lib/slf4j-api-1.7.5.jar:/opt/storm/lib/joda-time-2.0.jar:/opt/storm/lib/clj-stacktrace-0.2.2.jar:/opt/storm/lib/commons-lang-2.5.jar:/opt/storm/lib/reflectasm-1.07-shaded.jar:/opt/storm/lib/jetty-util-6.1.26.jar:/opt/storm/lib/disruptor-2.10.1.jar:/shared/storm-starter.jar:/opt/storm/conf:/opt/storm/bin -Dstorm.jar=/shared/storm-starter.jar storm.starter.ExclamationTopology exclamation-topology
+484  [main] INFO  backtype.storm.StormSubmitter - Jar not uploaded to master yet. Submitting jar...
+500  [main] INFO  backtype.storm.StormSubmitter - Uploading topology jar /shared/storm-starter.jar to assigned location: /app/storm/nimbus/inbox/stormjar-af0b62d9-ab95-43a5-bec0-2c0c3f701e51.jar
+Start uploading file '/shared/storm-starter.jar' to '/app/storm/nimbus/inbox/stormjar-af0b62d9-ab95-43a5-bec0-2c0c3f701e51.jar' (3304143 bytes)
+[==================================================] 3304143 / 3304143
+File '/shared/storm-starter.jar' uploaded to '/app/storm/nimbus/inbox/stormjar-af0b62d9-ab95-43a5-bec0-2c0c3f701e51.jar' (3304143 bytes)
+550  [main] INFO  backtype.storm.StormSubmitter - Successfully uploaded topology jar to assigned location: /app/storm/nimbus/inbox/stormjar-af0b62d9-ab95-43a5-bec0-2c0c3f701e51.jar
+550  [main] INFO  backtype.storm.StormSubmitter - Submitting topology exclamation-topology in distributed mode with conf {"topology.workers":3,"topology.debug":true}
+729  [main] INFO  backtype.storm.StormSubmitter - Finished submitting topology: exclamation-topology
+```
+
+Once you have that up and running, you should be able to run the test suite without issue
