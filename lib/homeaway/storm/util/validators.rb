@@ -30,7 +30,7 @@ module HomeAway
 
         # @private
         def self.date(input)
-          if input.is_a? String
+          if input.is_a? ::String
             input = Chronic.parse(input, :ambiguous_time_range => :none)
           end
           raise ArgumentError.new('dates must be a parseable date string or a Ruby Time object') unless input.is_a? Time
